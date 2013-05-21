@@ -32,14 +32,22 @@ foreach $rte (@ip6routes) {
     printf "|%-20s|\n",$rte;
     print "+--------------------+\n";
 }
-my @search = $i->route_search("199.168.72.0/21");
-foreach $rte (@search) {
-    print "$rte \n";
-}
+
+foreach $rte (@routes) {
+my $search = $i->route_search("$rte");
+#foreach $rte (@search) {
+    print "$search \n";
+}    
 my $asn;
 my @asSet = $i->get_as_set("AS-CMN",1);
 print "AS entries in CMN's as-set \"AS-CMN\"\n";
 foreach $asn (@asSet) {
     print "$asn\n";
 }
-
+my $entry;
+@asSet = undef;
+@asSet = $i->get_as_set("AS30600:AS-CUSTOMERS",1);
+print "Entries in as-set AS30600:AS-CUSTOMERS\n";
+  foreach $entry (@asSet) {
+    print "$entry \n";
+  }
