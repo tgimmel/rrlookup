@@ -40,6 +40,7 @@ my $search = $i->route_search("$rte");
 }    
 my $asn;
 my @asSet = $i->get_as_set("AS-CMN",1);
+print "\n";
 print "AS entries in CMN's as-set \"AS-CMN\"\n";
 foreach $asn (@asSet) {
     print "$asn\n";
@@ -47,6 +48,7 @@ foreach $asn (@asSet) {
 my $entry;
 @asSet = undef;
 @asSet = $i->get_as_set("AS30600:AS-CUSTOMERS",1);
+print "\n";
 print "Entries in as-set AS30600:AS-CUSTOMERS\n";
   foreach $entry (@asSet) {
     print "$entry \n";
